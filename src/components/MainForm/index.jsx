@@ -144,6 +144,7 @@ const MainForm = () => {
 
   const handleSelectedDate = (e) => {
     setOrderData((prevState) => ({ ...prevState, date: e }));
+    console.log(orderData);
   };
 
   const handleNext = () => {
