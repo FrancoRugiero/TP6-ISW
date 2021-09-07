@@ -1,7 +1,6 @@
 import React from 'react';
 import { Typography, Grid, TextField, InputLabel ,MenuItem,Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import { DropzoneArea } from 'material-ui-dropzone';
 import { PropTypes } from 'prop-types';
 
 
@@ -154,7 +153,7 @@ const OrderData = ({ orderData, handleChange, touched, errors, setFieldValue,set
           </Grid>
           </>
             ):(null)}
-            {orderData.carrito != [] ?(
+            {orderData.carrito !== [] ?(
              <Grid item xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>
             Productos en Carrito

@@ -148,7 +148,7 @@ const MainForm = () => {
 
   const handleNext = () => {
    // console.log(arrayNoVacio);
-    if(arrayNoVacio == true){
+    if(arrayNoVacio === true){
     setActiveStep(activeStep + 1);
    }
   };
