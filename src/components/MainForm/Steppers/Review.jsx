@@ -62,7 +62,10 @@ const Review = ({ orderData, amount}) => {
             Método de Pago
           </Typography>
           {orderData.cash ? (
+            <>
             <Typography gutterBottom>{`Efectivo: $${amount}`}</Typography>
+            <Typography gutterBottom>{`Restan pagar: $${orderData.precioAcumulado - amount}`}</Typography>
+            </>
           ) : (
             <>
               <Typography gutterBottom>Tarjeta de Crédito Visa</Typography>
