@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Review = ({ orderData }) => {
+const Review = ({ orderData, amount}) => {
   const classes = useStyles();
   return (
     <>
@@ -24,6 +24,9 @@ const Review = ({ orderData }) => {
               <InputLabel value={carr}>{carr}</InputLabel>
             ))}
           </Typography>
+          <Typography variant="h7" gutterBottom className={classes.title}>
+           Total a pagar: ${orderData.precioAcumulado}
+        </Typography>
       <Typography gutterBottom></Typography>
       <Grid container spacing={2}>
         <Grid item xs={12} sm={6}>
@@ -59,7 +62,7 @@ const Review = ({ orderData }) => {
             Método de Pago
           </Typography>
           {orderData.cash ? (
-            <Typography gutterBottom>{`Efectivo: $${orderData.amount}`}</Typography>
+            <Typography gutterBottom>{`Efectivo: $${amount}`}</Typography>
           ) : (
             <>
               <Typography gutterBottom>Tarjeta de Crédito Visa</Typography>

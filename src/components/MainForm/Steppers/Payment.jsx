@@ -104,15 +104,27 @@ const CVVMask = (props) => {
 CVVMask.propTypes = {
   inputRef: PropTypes.any.isRequired,
 };
-const Payment = ({ orderData, handleChange, errors, touched }) => {
+const Payment = ({ orderData, handleChange, errors, touched,setAmount,amount }) => {
   const theme = useTheme();
   const classes = useStyles();
+ 
+  const handleChangeAmount = (e) =>{
+    setAmount(e.target.value)
+  }
+
   return (
     <>
       <Typography variant="h6" gutterBottom>
         Método de pago
       </Typography>
       <Grid container spacing={3}>
+      {orderData.precioAcumulado > 0 ? (
+        <Grid item xs={12}>
+        <Typography variant="h7" gutterBottom className={classes.title}>
+           Total a pagar: ${orderData.precioAcumulado}
+        </Typography>
+        </Grid>
+         ):(null)}
         <Grid item xs={12}>
           <InputLabel className={classes.fileLabel}>Indique forma de pago</InputLabel>
           <Select
@@ -220,9 +232,9 @@ const Payment = ({ orderData, handleChange, errors, touched }) => {
               name="amount"
               label="Monto con el que va a pagar"
               type="number"
-              error={touched.amount && Boolean(errors.amount)}
-              onChange={handleChange}
-              value={orderData.amount}
+             // error={touched.amount && Boolean(errors.amount)}
+              onChange={handleChangeAmount}
+              value={amount}
               fullWidth
               InputProps={{
                 startAdornment: <InputAdornment position="start">$</InputAdornment>,
@@ -232,6 +244,15 @@ const Payment = ({ orderData, handleChange, errors, touched }) => {
           </Grid>
         </Grid>
       )}
+      {orderData.precioAcumulado <= amount ?(
+       <Grid container spacing={3}>
+         <Grid item xs={12} md={6}>
+         <Typography variant="h7" gutterBottom className={classes.title}>
+           El monto a pagar es mayor que el monto total
+        </Typography>
+         </Grid>
+        </Grid>
+      ):(null)}
     </>
   );
 };

@@ -9,7 +9,7 @@ import NavBar from './components/NavBar';
 const theme = createMuiTheme({
   palette: {
     primary: {
-      main: '#A42B36',
+      main: '#333366',
     },
     secondary: {
       main: '#565F81',

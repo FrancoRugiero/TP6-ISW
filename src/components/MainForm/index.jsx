@@ -47,6 +47,8 @@ const initialOrderData = {
   comercio: '',
   carrito:[],
   producto:'',
+  precio:0,
+  precioAcumulado:0,
   addressDelivery: '',
   numberDelivery: '',
   cityDelivery: '',
@@ -83,10 +85,10 @@ const validationSchema = [
   }),
   yup.object().shape({
     cash: yup.boolean().required(),
-    amount: yup.number().when('cash', {
-      is: true,
-      then: yup.number().min(0).required(),
-    }),
+    // amount: yup.number().when('cash', {
+    //   is: true,
+    //   then: yup.number().min(0).required(),
+    // }),
     cardNumber: yup.string().when('cash', {
       is: false,
       then: yup.string().required().length(19),
@@ -140,6 +142,8 @@ const MainForm = () => {
   const classes = useStyles();
   const [activeStep, setActiveStep] = useState(0);
   const [arrayNoVacio, setArrayNoVacio] = useState(false);
+  const [precioAcumulado, setPrecioAcumulado] = useState(0);
+  const [amount, setAmount] = useState();
   const [orderData, setOrderData] = useState(initialOrderData);
 
   const handleSelectedDate = (e) => {
@@ -147,11 +151,22 @@ const MainForm = () => {
     console.log(orderData);
   };
 
-  const handleNext = () => {
-   // console.log(arrayNoVacio);
-    if(arrayNoVacio === true){
-    setActiveStep(activeStep + 1);
-   }
+
+  const handleNext = () => {   
+     if(activeStep === 0  && arrayNoVacio === true){
+     setActiveStep(activeStep + 1);
+    }
+    if(activeStep === 1){
+      setActiveStep(activeStep + 1);
+    }
+    if(activeStep === 2  && precioAcumulado >= amount){
+      setActiveStep(activeStep + 1);
+     }
+     if(activeStep === 3){
+      setActiveStep(activeStep + 1);
+    }
+    console.log("Acumulado: "+precioAcumulado);
+    console.log("Amount: "+amount);
   };
 
   const handleBack = () => {
@@ -159,7 +174,6 @@ const MainForm = () => {
   };
   const handleSubmitForm = (values, { resetForm }) => {
     if (activeStep === 3) {
-      console.log('Ready');
       handleNext();
       resetForm({});
     } else {
@@ -184,6 +198,7 @@ const MainForm = () => {
             touched={touched}
             handleSelectedDate={handleSelectedDate}
             setArrayNoVacio={setArrayNoVacio}
+            setPrecioAcumulado={setPrecioAcumulado}
           />
         );
       case 1:
@@ -205,10 +220,12 @@ const MainForm = () => {
             errors={errors}
             touched={touched}
             handleChange={handleChange}
+            setAmount={setAmount}
+            amount={amount}
           />
         );
       case 3:
-        return <Review orderData={values} />;
+        return <Review orderData={values}  amount={amount} />;
       default:
         throw new Error('Unknown step');
     }

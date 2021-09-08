@@ -8,6 +8,9 @@ export const comercios = ['Adidas', '47street', 'oaxaca'];
 export const productosAdidas = ['questar flow', 'nmd_r1', 'hoops 2.0','daily 3.0'];
 export const productos47Street = ['Campera Berlin', 'Campera E. kala', 'Canguro basic relax'];
 export const productosOaxaca = ['Tacos', 'Lomos 2x1', 'Fajitas','Chidas','Nacho oaxaca'];
+export const preciosAdidas = [4500, 5000, 5500,7000];
+export const precios47Street = [3000, 4000, 5000];
+export const preciosOaxaca = [400,600,200,350,250];
 
 const useStyles = makeStyles((theme) => ({
   fileLabel: {
@@ -19,15 +22,76 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const OrderData = ({ orderData, handleChange, touched, errors, setFieldValue,setArrayNoVacio}) => {
+const OrderData = ({ orderData, handleChange, touched, errors, setFieldValue,setArrayNoVacio, setPrecioAcumulado}) => {
   const classes = useStyles();
 
   const agregarAlCarrito = () => {
-  orderData.carrito.push(orderData.comercio+" - "+orderData.producto)
- // console.log(orderData.carrito);
+    if(orderData.producto === productosAdidas[0]){
+      orderData.precio = preciosAdidas[0];
+      orderData.precioAcumulado += orderData.precio
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+    }
+    if(orderData.producto === productosAdidas[1]){
+      orderData.precio = preciosAdidas[1];
+      orderData.precioAcumulado += orderData.precio
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+    }
+    if(orderData.producto === productosAdidas[2]){
+      orderData.precio = preciosAdidas[2];
+      orderData.precioAcumulado += orderData.precio
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+    }
+    if(orderData.producto === productosAdidas[3]){
+      orderData.precio = preciosAdidas[3];
+      orderData.precioAcumulado += orderData.precio
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+    }
+    if(orderData.producto === productos47Street[0]){
+      orderData.precio = precios47Street[0];
+      orderData.precioAcumulado += orderData.precio
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+    }
+    if(orderData.producto === productos47Street[1]){
+      orderData.precio = precios47Street[1];
+      orderData.precioAcumulado += orderData.precio
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+    }
+    if(orderData.producto === productos47Street[2]){
+      orderData.precio = precios47Street[2];
+      orderData.precioAcumulado += orderData.precio
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+    }
+    if(orderData.producto === productosOaxaca[0]){
+      orderData.precio = preciosOaxaca[0];
+      orderData.precioAcumulado += orderData.precio
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+    }
+    if(orderData.producto === productosOaxaca[1]){
+      orderData.precio = preciosOaxaca[1];
+      orderData.precioAcumulado += orderData.precio
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+    }
+    if(orderData.producto === productosOaxaca[2]){
+      orderData.precio = preciosOaxaca[2];
+      orderData.precioAcumulado += orderData.precio
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+    }
+    if(orderData.producto === productosOaxaca[3]){
+      orderData.precio = preciosOaxaca[3];
+      orderData.precioAcumulado += orderData.precio
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+    }
+    if(orderData.producto === productosOaxaca[4]){
+      orderData.precio = preciosOaxaca[4];
+      orderData.precioAcumulado += orderData.precio
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+    }
+ 
   setFieldValue("");
   orderData.comercio="";
+  orderData.producto="";
   setArrayNoVacio(true);
+  setPrecioAcumulado(orderData.precioAcumulado)
   }
 
   return (
@@ -153,7 +217,8 @@ const OrderData = ({ orderData, handleChange, touched, errors, setFieldValue,set
           </Grid>
           </>
             ):(null)}
-            {orderData.carrito !== [] ?(
+            {orderData.precioAcumulado > 0 ?(
+              <>
              <Grid item xs={12} sm={6}>
           <Typography variant="h6" gutterBottom className={classes.title}>
             Productos en Carrito
@@ -164,7 +229,13 @@ const OrderData = ({ orderData, handleChange, touched, errors, setFieldValue,set
               ))}                   
           </Typography>
         </Grid>
-             ):(null)}
+        <Grid item xs={12}>
+        <Typography variant="h6" gutterBottom className={classes.title}>
+          Total Acumulado: ${orderData.precioAcumulado}
+        </Typography>
+        </Grid>
+        </>
+         ):(null)}
       </Grid>
     </>
   );
