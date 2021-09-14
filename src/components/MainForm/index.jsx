@@ -48,6 +48,7 @@ const initialOrderData = {
   carrito:[],
   producto:'',
   precio:0,
+  cantidad:1,
   precioAcumulado:0,
   addressDelivery: '',
   numberDelivery: '',
@@ -70,17 +71,18 @@ const steps = ['Datos del Pedido', 'Dirección del Pedido', 'Método de Pago', '
 const validationSchema = [
   yup.object().shape({
     comercio: yup.string(),
-    producto: yup.string()
+    producto: yup.string(),
+    cantidad: yup.number().positive("Debe ser un numero positivo").integer("Debe ser un numero entero"),
   }),
   yup.object().shape({
-    addressDelivery: yup.string().required(),
-    numberDelivery: yup.number().min(0).required(),
-    cityDelivery: yup.string().required(),
+    addressDelivery: yup.string().required("Debe colocar una calle."),
+    numberDelivery: yup.number(),
+    cityDelivery: yup.string().required("Debe seleccionar una ciudad."),
     referenceDelivery: yup.string(),
     immediately: yup.boolean(),
     date: yup.date().when('immediately', {
       is: false,
-      then: yup.date().min(new Date()).required(),
+      then: yup.date().min(new Date(),"La fecha y hora deben ser mayores a la fecha y hora actuales.").required(),
     }),
   }),
   yup.object().shape({
@@ -159,7 +161,7 @@ const MainForm = () => {
     if(activeStep === 1){
       setActiveStep(activeStep + 1);
     }
-    if(activeStep === 2  && precioAcumulado >= amount){
+    if(activeStep === 2  && precioAcumulado <= amount){
       setActiveStep(activeStep + 1);
      }
      if(activeStep === 3){

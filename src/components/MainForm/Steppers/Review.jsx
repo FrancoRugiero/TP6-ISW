@@ -64,7 +64,7 @@ const Review = ({ orderData, amount}) => {
           {orderData.cash ? (
             <>
             <Typography gutterBottom>{`Efectivo: $${amount}`}</Typography>
-            <Typography gutterBottom>{`Restan pagar: $${orderData.precioAcumulado - amount}`}</Typography>
+            <Typography gutterBottom>{`Vuelto: $${amount - orderData.precioAcumulado}`}</Typography>
             </>
           ) : (
             <>

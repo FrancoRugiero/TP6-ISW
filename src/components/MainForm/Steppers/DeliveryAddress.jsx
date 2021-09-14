@@ -40,6 +40,7 @@ const DeliveryAddress = ({orderData,handleChange,setFieldValue,touched,errors}) 
             label="Ciudad"
             name="cityDelivery"
             error={touched.cityDelivery && Boolean(errors.cityDelivery)}
+            helperText={touched.cityDelivery && errors.cityDelivery}
             value={orderData.cityDelivery}
             fullWidth
             onChange={(e) => {
@@ -50,12 +51,13 @@ const DeliveryAddress = ({orderData,handleChange,setFieldValue,touched,errors}) 
               <MenuItem value={city}>{city}</MenuItem>
             ))}
           </TextField>
-        </Grid>
+        </Grid>  
         <Grid item xs={8}>
           <TextField
             id="addressDelivery"
             name="addressDelivery"
             error={touched.addressDelivery && Boolean(errors.addressDelivery)}
+            helperText={touched.addressDelivery && errors.addressDelivery}
             label="Calle"
             value={orderData.addressDelivery}
             onChange={handleChange}
@@ -70,6 +72,7 @@ const DeliveryAddress = ({orderData,handleChange,setFieldValue,touched,errors}) 
             inputProps={{ min: '0' }}
             type="number"
             error={touched.numberDelivery && Boolean(errors.numberDelivery)}
+            helperText={touched.numberDelivery && errors.numberDelivery}
             value={orderData.numberDelivery}
             onChange={handleChange}
             fullWidth
@@ -112,6 +115,7 @@ const DeliveryAddress = ({orderData,handleChange,setFieldValue,touched,errors}) 
               id="date"
               ampm
               error={touched.date && Boolean(errors.date)}
+              helperText={touched.date && errors.date}
               value={orderData.date}
               onChange={(date) => {
                 setFieldValue('date', date);

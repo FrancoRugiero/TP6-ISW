@@ -244,11 +244,11 @@ const Payment = ({ orderData, handleChange, errors, touched,setAmount,amount }) 
           </Grid>
         </Grid>
       )}
-      {orderData.precioAcumulado <= amount ?(
+      {amount < orderData.precioAcumulado ?(
        <Grid container spacing={3}>
          <Grid item xs={12} md={6}>
          <Typography variant="h7" gutterBottom className={classes.title}>
-           El monto a pagar es mayor que el monto total
+           No le alcanza para pagar. Coloque un monto mayor.
         </Typography>
          </Grid>
         </Grid>

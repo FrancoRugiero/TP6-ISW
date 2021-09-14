@@ -28,68 +28,69 @@ const OrderData = ({ orderData, handleChange, touched, errors, setFieldValue,set
   const agregarAlCarrito = () => {
     if(orderData.producto === productosAdidas[0]){
       orderData.precio = preciosAdidas[0];
-      orderData.precioAcumulado += orderData.precio
-      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+      orderData.precioAcumulado += (orderData.precio * orderData.cantidad)
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - Precio por unidad: "+orderData.precio+" x "+orderData.cantidad+" Unidad/es - Total: $"+(orderData.precio*orderData.cantidad))
     }
     if(orderData.producto === productosAdidas[1]){
       orderData.precio = preciosAdidas[1];
-      orderData.precioAcumulado += orderData.precio
-      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+      orderData.precioAcumulado += (orderData.precio * orderData.cantidad)
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - Precio por unidad: "+orderData.precio+" x "+orderData.cantidad+" Unidad/es - Total: $"+(orderData.precio*orderData.cantidad))
     }
     if(orderData.producto === productosAdidas[2]){
       orderData.precio = preciosAdidas[2];
-      orderData.precioAcumulado += orderData.precio
-      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+      orderData.precioAcumulado += (orderData.precio * orderData.cantidad)
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - Precio por unidad: "+orderData.precio+" x "+orderData.cantidad+" Unidad/es - Total: $"+(orderData.precio*orderData.cantidad))
     }
     if(orderData.producto === productosAdidas[3]){
       orderData.precio = preciosAdidas[3];
-      orderData.precioAcumulado += orderData.precio
-      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+      orderData.precioAcumulado += (orderData.precio * orderData.cantidad)
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - Precio por unidad: "+orderData.precio+" x "+orderData.cantidad+" Unidad/es - Total: $"+(orderData.precio*orderData.cantidad))
     }
     if(orderData.producto === productos47Street[0]){
       orderData.precio = precios47Street[0];
-      orderData.precioAcumulado += orderData.precio
-      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+      orderData.precioAcumulado += (orderData.precio * orderData.cantidad)
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - Precio por unidad: "+orderData.precio+" x "+orderData.cantidad+" Unidad/es - Total: $"+(orderData.precio*orderData.cantidad))
     }
     if(orderData.producto === productos47Street[1]){
       orderData.precio = precios47Street[1];
-      orderData.precioAcumulado += orderData.precio
-      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+      orderData.precioAcumulado += (orderData.precio * orderData.cantidad)
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - Precio por unidad: "+orderData.precio+" x "+orderData.cantidad+" Unidad/es - Total: $"+(orderData.precio*orderData.cantidad))
     }
     if(orderData.producto === productos47Street[2]){
       orderData.precio = precios47Street[2];
-      orderData.precioAcumulado += orderData.precio
-      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+      orderData.precioAcumulado += (orderData.precio * orderData.cantidad)
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - Precio por unidad: "+orderData.precio+" x "+orderData.cantidad+" Unidad/es - Total: $"+(orderData.precio*orderData.cantidad))
     }
     if(orderData.producto === productosOaxaca[0]){
       orderData.precio = preciosOaxaca[0];
-      orderData.precioAcumulado += orderData.precio
-      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+      orderData.precioAcumulado += (orderData.precio * orderData.cantidad)
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - Precio por unidad: "+orderData.precio+" x "+orderData.cantidad+" Unidad/es - Total: $"+(orderData.precio*orderData.cantidad))
     }
     if(orderData.producto === productosOaxaca[1]){
       orderData.precio = preciosOaxaca[1];
-      orderData.precioAcumulado += orderData.precio
-      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+      orderData.precioAcumulado += (orderData.precio * orderData.cantidad)
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - Precio por unidad: "+orderData.precio+" x "+orderData.cantidad+" Unidad/es - Total: $"+(orderData.precio*orderData.cantidad))
     }
     if(orderData.producto === productosOaxaca[2]){
       orderData.precio = preciosOaxaca[2];
-      orderData.precioAcumulado += orderData.precio
-      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+      orderData.precioAcumulado += (orderData.precio * orderData.cantidad)
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - Precio por unidad: "+orderData.precio+" x "+orderData.cantidad+" Unidad/es - Total: $"+(orderData.precio*orderData.cantidad))
     }
     if(orderData.producto === productosOaxaca[3]){
       orderData.precio = preciosOaxaca[3];
-      orderData.precioAcumulado += orderData.precio
-      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+      orderData.precioAcumulado += (orderData.precio * orderData.cantidad)
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - Precio por unidad: "+orderData.precio+" x "+orderData.cantidad+" Unidad/es - Total: $"+(orderData.precio*orderData.cantidad))
     }
     if(orderData.producto === productosOaxaca[4]){
       orderData.precio = preciosOaxaca[4];
-      orderData.precioAcumulado += orderData.precio
-      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - $"+orderData.precio)
+      orderData.precioAcumulado += (orderData.precio * orderData.cantidad)
+      orderData.carrito.push(orderData.comercio+" - "+orderData.producto+" - Precio por unidad: "+orderData.precio+" x "+orderData.cantidad+" Unidad/es - Total: $"+(orderData.precio*orderData.cantidad))
     }
  
   setFieldValue("");
   orderData.comercio="";
   orderData.producto="";
+  orderData.cantidad=1;
   setArrayNoVacio(true);
   setPrecioAcumulado(orderData.precioAcumulado)
   }
@@ -138,6 +139,22 @@ const OrderData = ({ orderData, handleChange, touched, errors, setFieldValue,set
             ))} 
            </TextField>
         </Grid>
+
+        <Grid item xs={12}>
+          <TextField
+            id="cantidad"
+            name="cantidad"
+            label="Cantidad"
+            inputProps={{ min: '0' }}
+            type="number"
+            error={touched.cantidad && Boolean(errors.cantidad)}
+            helperText={touched.cantidad && errors.cantidad}
+            value={orderData.cantidad}
+            onChange={handleChange}
+            fullWidth
+          />
+        </Grid>  
+        
          <Grid item xs={12}>
          <Button
          type="button"
@@ -170,6 +187,21 @@ const OrderData = ({ orderData, handleChange, touched, errors, setFieldValue,set
                  <MenuItem value={str}>{str}</MenuItem>
                ))} 
               </TextField>
+              <Grid item xs={12}>
+          <TextField
+            id="cantidad"
+            name="cantidad"
+            label="Cantidad"
+            inputProps={{ min: '0' }}
+            type="number"
+            error={touched.cantidad && Boolean(errors.cantidad)}
+            helperText={touched.cantidad && errors.cantidad}
+            value={orderData.cantidad}
+            onChange={handleChange}
+            fullWidth
+          />
+        </Grid>
+
            </Grid>
             <Grid item xs={12}>
             <Button
@@ -182,6 +214,7 @@ const OrderData = ({ orderData, handleChange, touched, errors, setFieldValue,set
             Agregar al carrito
           </Button>
           </Grid>
+          
           </>
             ):(null)}
             {orderData.comercio ==='oaxaca' ?(
@@ -204,6 +237,20 @@ const OrderData = ({ orderData, handleChange, touched, errors, setFieldValue,set
                ))} 
               </TextField>       
            </Grid>
+           <Grid item xs={12}>
+          <TextField
+            id="cantidad"
+            name="cantidad"
+            label="Cantidad"
+            inputProps={{ min: '0' }}
+            type="number"
+            error={touched.cantidad && Boolean(errors.cantidad)}
+            helperText={touched.cantidad && errors.cantidad}
+            value={orderData.cantidad}
+            onChange={handleChange}
+            fullWidth
+          />
+        </Grid>
             <Grid item xs={12}>
             <Button
             type="button"
@@ -215,6 +262,8 @@ const OrderData = ({ orderData, handleChange, touched, errors, setFieldValue,set
             Agregar al carrito
           </Button>
           </Grid>
+          
+
           </>
             ):(null)}
             {orderData.precioAcumulado > 0 ?(
@@ -236,6 +285,7 @@ const OrderData = ({ orderData, handleChange, touched, errors, setFieldValue,set
         </Grid>
         </>
          ):(null)}
+        
       </Grid>
     </>
   );
