@@ -48,6 +48,7 @@ const initialOrderData = {
   carrito:[],
   producto:'',
   precio:0,
+  precioServicio:500,
   cantidad:1,
   precioAcumulado:0,
   addressDelivery: '',

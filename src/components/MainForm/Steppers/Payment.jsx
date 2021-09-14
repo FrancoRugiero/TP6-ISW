@@ -119,11 +119,18 @@ const Payment = ({ orderData, handleChange, errors, touched,setAmount,amount }) 
       </Typography>
       <Grid container spacing={3}>
       {orderData.precioAcumulado > 0 ? (
+        <>
         <Grid item xs={12}>
-        <Typography variant="h7" gutterBottom className={classes.title}>
-           Total a pagar: ${orderData.precioAcumulado}
+          <Typography variant="h7" gutterBottom className={classes.title}>
+           Precio del servicio: ${orderData.precioServicio}
         </Typography>
         </Grid>
+        <Grid item xs={12}>
+        <Typography variant="h7" gutterBottom className={classes.title}>
+           Total a pagar: ${orderData.precioAcumulado+orderData.precioServicio}
+        </Typography>
+        </Grid>
+        </>
          ):(null)}
         <Grid item xs={12}>
           <InputLabel className={classes.fileLabel}>Indique forma de pago</InputLabel>
@@ -244,7 +251,7 @@ const Payment = ({ orderData, handleChange, errors, touched,setAmount,amount }) 
           </Grid>
         </Grid>
       )}
-      {amount < orderData.precioAcumulado ?(
+      {amount < (orderData.precioAcumulado+orderData.precioServicio) ?(
        <Grid container spacing={3}>
          <Grid item xs={12} md={6}>
          <Typography variant="h7" gutterBottom className={classes.title}>

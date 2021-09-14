@@ -25,7 +25,7 @@ const Review = ({ orderData, amount}) => {
             ))}
           </Typography>
           <Typography variant="h7" gutterBottom className={classes.title}>
-           Total a pagar: ${orderData.precioAcumulado}
+           Total a pagar: ${orderData.precioAcumulado+orderData.precioServicio}
         </Typography>
       <Typography gutterBottom></Typography>
       <Grid container spacing={2}>
@@ -64,7 +64,7 @@ const Review = ({ orderData, amount}) => {
           {orderData.cash ? (
             <>
             <Typography gutterBottom>{`Efectivo: $${amount}`}</Typography>
-            <Typography gutterBottom>{`Vuelto: $${amount - orderData.precioAcumulado}`}</Typography>
+            <Typography gutterBottom>{`Vuelto: $${amount - (orderData.precioAcumulado+orderData.precioServicio)}`}</Typography>
             </>
           ) : (
             <>
